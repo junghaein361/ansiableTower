@@ -1,0 +1,10 @@
+- name: Test FreeIPA dynamic inventory
+  hosts: all
+  become: True
+  tasks:
+    - name: Display FQDN
+      debug:
+        msg: "{{ ansible_fqdn }}"
+    - copy:
+        dest: /etc/test
+        content: '{{ ansible_fqdn }}'
